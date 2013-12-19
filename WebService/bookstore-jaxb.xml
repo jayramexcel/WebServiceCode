@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:bookstore xmlns:ns2="de.vogella.xml.jaxb.model">
+    <bookList>
+        <book>
+            <author>James Goslin</author>
+            <title>Core Java</title>
+            <publisher>Excel</publisher>
+            <isbn>909-8876548</isbn>
+        </book>
+        <book>
+            <author>Charles Don</author>
+            <title>Dot Net</title>
+            <publisher>Oreilly</publisher>
+            <isbn>674-9829475</isbn>
+        </book>
+    </bookList>
+    <location>Concord</location>
+    <name>Excel Store</name>
+</ns2:bookstore>
