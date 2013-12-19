@@ -1,13 +1,29 @@
 package com.excelonline.ws.order;
 
+import javax.annotation.Resource;
 import javax.jws.WebService;
+import javax.xml.namespace.QName;
+import javax.xml.ws.WebServiceContext;
+import javax.xml.ws.handler.MessageContext;
+import org.apache.cxf.message.Message;
 /**
  * It is recommended that developers explicitly implement OrderProcess SEI, though it may not be necessary
  */
 @WebService(serviceName="OrderProcessService",portName="OrderProcessPort", endpointInterface="com.excelonline.ws.order.OrderProcess")
 public class OrderProcessImpl implements OrderProcess {
 
+	@Resource
+	WebServiceContext wsc;
+
     public String processOrder(Order order , Order orderTwo) {
+    	
+		System.out.println("Getting the operation info from the message context ");
+		MessageContext ctx = wsc.getMessageContext();
+		QName operation = (QName) ctx.get(Message.WSDL_OPERATION);
+
+		System.out.println("The operation name is " + operation);
+
+		
 		String orderID = validate(order);
         return orderID;
     }
