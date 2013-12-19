@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 //This statement means that class "Bookstore.java" is the root-element of our example
-@XmlRootElement(namespace = "de.vogella.xml.jaxb.model")
+@XmlRootElement(namespace = "com.excelonline.jaxb")
 public class Bookstore {
 
 	// XmLElementWrapper generates a wrapper element around XML representation
