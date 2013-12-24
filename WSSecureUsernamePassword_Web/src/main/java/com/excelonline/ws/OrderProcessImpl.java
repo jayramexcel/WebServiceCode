@@ -1,10 +1,12 @@
 package com.excelonline.ws;
 
+import javax.jws.HandlerChain;
 import javax.jws.WebService;
 /**
  * It is recommended that developers explicitly implement OrderProcess SEI, though it may not be necessary
  */
 @WebService
+@HandlerChain(file="handler-chain.xml")
 public class OrderProcessImpl implements OrderProcess {
 
     public String processOrder(Order order) {
