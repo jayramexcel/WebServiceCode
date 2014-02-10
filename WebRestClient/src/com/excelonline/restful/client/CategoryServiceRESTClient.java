@@ -1,4 +1,4 @@
-package com.excelonline.restful;
+package com.excelonline.restful.client;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,24 +8,27 @@ import javax.ws.rs.core.Response;
 
 import org.apache.cxf.jaxrs.client.WebClient;
 
+import com.excelonline.restful.standalone.Book;
+import com.excelonline.restful.standalone.Category;
+
 public class CategoryServiceRESTClient {
 
 	//Put some static value
-	private static final String CATEGORY_URL="http://localhost:9000/";
-	private static final String CATEGORY_ID="005";
+	private static final String CATEGORY_URL="http://localhost:8080/WebRest";
+	private static final String CATEGORY_ID ="001";
 	private static final String TYPE_XML="application/xml";
 	private static final String TYPE_JSON="application/json";
 
 	public static void main(String[] args) {
 
-		String format = TYPE_XML;    
+		String format = TYPE_XML;
 
-		testAddCategory(format);
-		testUpdateCategory(format);
+//		testAddCategory(format);
+//		testUpdateCategory(format);
 		testGetCategory(format);
-		testAddBooksForCategory(format);
-		testGetBooksForCategory(format);
-		testDeleteCategory(format);
+//		testAddBooksForCategory(format);
+//		testGetBooksForCategory(format);
+//		testDeleteCategory(format);
 	}
 
 	private static void testAddCategory(final String format){
@@ -82,6 +85,7 @@ public class CategoryServiceRESTClient {
 		Category cat = new Category();
 		cat.setCategoryId(CATEGORY_ID);
 		cat.setCategoryName("Fiction Series");
+		
 		Book book1 = new Book();
 		book1.setAuthor("Naveen Balani");
 		book1.setBookId("NB001");
@@ -92,9 +96,6 @@ public class CategoryServiceRESTClient {
 		booksList.add(book1);
 		cat.setBooks(booksList);
 		client.post(cat, Category.class);
-
-
-
 	}
 
 	private static void testGetBooksForCategory(final String format){

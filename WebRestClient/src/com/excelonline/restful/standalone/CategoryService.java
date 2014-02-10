@@ -1,4 +1,4 @@
-package com.excelonline.restful;
+package com.excelonline.restful.standalone;
 
 //JAX-RS Imports
 import javax.ws.rs.Consumes;
@@ -34,10 +34,10 @@ public class CategoryService {
 
 	@GET
 	@Path("/category/{id}")
+	@Produces("application/json")
 	public Category getCategory(@PathParam("id") String id) {
 
 		System.out.println("getCategory called with category id: " + id);
-
 		Category cat = (Category) getCategoryDAO().getCategory(id);
 		if (cat == null) {
 			ResponseBuilder builder = Response.status(Status.BAD_REQUEST);
@@ -51,11 +51,8 @@ public class CategoryService {
 
 	@POST
 	@Path("/category")
-	@Consumes("application/xml")
 	public Response addCategory(Category category) {
-
 		System.out.println("addCategory called");
-
 		Category cat = (Category) getCategoryDAO().getCategory(
 				category.getCategoryId());
 

@@ -5,18 +5,10 @@
       xsi:schemaLocation="http://www.springframework.org/schema/beans 
       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	
-	<bean id="categoryService" class="com.excelonline.restful.CategoryService">
+	<bean id="categoryService" class="com.excelonline.restful.standalone.CategoryService">
 		<property name="categoryDAO">
 			<ref bean="categoryDAO" />
 		</property>
 	</bean>
-	
-
-	<bean id="categoryDAO" class="com.excelonline.restful.CategoryDAO">
-    	<!--  wire dependency-->
-    </bean>
-    
-    
-    
-		
+	<bean id="categoryDAO" class="com.excelonline.restful.standalone.CategoryDAO"/>
 </beans>

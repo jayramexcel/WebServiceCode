@@ -1,4 +1,4 @@
-package com.excelonline.restful;
+package com.excelonline.restful.standalone;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,36 +11,25 @@ public class CategoryServerStart {
 
 	public static void main(String[] args) {
 
-   
-	    ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(new String[] {
-	        "/com/excelonline/restful/restapp.xml"
-	    });
-	    
-	    CategoryService categoryService = (CategoryService)
-		appContext.getBean("categoryService");
-		
+
+		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(new String[] {
+				"/com/excelonline/restful/standalone/restapp.xml"
+		});
+
+		CategoryService categoryService = (CategoryService)
+				appContext.getBean("categoryService");
 		// Service instance
-
 		JAXRSServerFactoryBean restServer = new JAXRSServerFactoryBean();
-
 		restServer.setResourceClasses(Category.class);
-
 		restServer.setServiceBean(categoryService);
-
 		restServer.setAddress("http://localhost:9000/");
-
 		restServer.create();
-
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
 		try {
 			br.readLine();
 		} catch (IOException e) {
-
 		}
 		System.out.println("Server Stopped");
 		System.exit(0);
-
 	}
-
 }

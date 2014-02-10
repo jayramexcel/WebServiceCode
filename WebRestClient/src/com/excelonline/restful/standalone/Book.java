@@ -1,4 +1,4 @@
-package com.excelonline.restful;
+package com.excelonline.restful.standalone;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

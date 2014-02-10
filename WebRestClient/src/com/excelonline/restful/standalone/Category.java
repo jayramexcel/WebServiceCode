@@ -1,4 +1,4 @@
-package com.excelonline.restful;
+package com.excelonline.restful.standalone;
 
 import java.util.Collection;
 
